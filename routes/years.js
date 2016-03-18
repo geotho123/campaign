@@ -24,7 +24,7 @@ router.get('/',function(req, res) {
     console.log(docs);
 
     res.json( {
-            "yearsCollection" :   docs
+            "yearsCollection" :   JSON.stringify(docs)
 
         });
     });

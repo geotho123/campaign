@@ -24,7 +24,7 @@ router.get('/',function(req, res) {
     console.log(docs);
 
     res.json( {
-            "countryCollection" :   docs
+            "countryCollection" :   JSON.stringify(docs)
 
         });
     });
