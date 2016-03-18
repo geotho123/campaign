@@ -20,7 +20,7 @@ router.use(function(req,res,next){
 router.get('/',function(req, res) {
     var db = req.db;
     var collection = db.get('years');
-	  collection.find({},{_id:0, name:1,abbr:1},function(e,docs){
+	  collection.find({},{},function(e,docs){
     console.log(docs);
 
     res.json( {
