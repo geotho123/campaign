@@ -55,7 +55,7 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-router.get("/",function(req,res){
+router.get("/hello",function(req,res){
     res.json({"error" : false,"message" : "Hello World"});
 });
 
