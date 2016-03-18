@@ -3,7 +3,7 @@ var router = express.Router();
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/campaign');
+var db = monk('geo:satyam@ds015909.mlab.com:15909/heroku_dnmj5kmm');
 // get an instance of router
 
 

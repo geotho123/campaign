@@ -3,7 +3,7 @@ var router = express.Router();
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/campaign');
+var db = monk('geo:satyam@ds015909.mlab.com:15909/heroku_dnmj5kmm');
 // get an instance of router
 
 
@@ -19,7 +19,7 @@ router.use(function(req,res,next){
 /* GET statesCollection page. */
 router.get('/',function(req, res) {
     var db = req.db;
-    var collection = db.get('countrycollection');
+    var collection = db.get('country');
 	  collection.find({},{_id:0, name:1,abbr:1},function(e,docs){
     console.log(docs);
 
