@@ -24,11 +24,25 @@ router.get('/',function(req, res) {
     console.log(docs);
 
     res.json( {
-            "candidateCollection" :  JSON.stringify(docs) 
+            "candidateCollection" :  JSON.stringify(docs)
 
         });
     });
 });
 
+
+/* GET statesCollection page. */
+router.get('/:',function(req, res) {
+    var db = req.db;
+    var collection = db.get('candidate');
+	  collection.find({},{},function(e,docs){
+    console.log(docs);
+
+    res.json( {
+            "candidateCollection" :  JSON.stringify(docs)
+
+        });
+    });
+});
 
 module.exports = router;

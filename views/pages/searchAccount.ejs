@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <% include ../partials/head %>
+   </head>
+   <body class="container">
+      <header>
+         <% include ../partials/header %>
+      </header>
+      <main>
+      </main>
+	  <div class="jumbotron">
+            <div class="container">
+               <div class="row">
+                  <form action="/getAccount" method="GET">
+                     <h2>Search </h2>
+                     <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                           <input type="text" id="searchQuery" name="searchQuery" class="search-query form-control" placeholder="Search" />
+                           <span class="input-group-btn">
+                           <button class="btn btn-danger" type="submit">
+                           <span class="glyphicon glyphicon-search"></span>
+                           </button>
+                           </span>
+                        </div>
+                     </div>
+                  </form>
+            </div>
+
+            <div class="row"><br/></div>
+
+
+
+        <% if(useListFlag =='Y') { %>
+
+       <div class="list-group">
+                 <% var parselist = JSON.parse(body);
+
+            var list = Object.keys(parselist.accounts) %>
+
+            <% for(var i=0; i < list.length; i++) {
+                    %>
+      <div class="row">
+           <a href="#" data-id="<%= parselist.accounts[i]._id%>" class="list-group-item"><%= parselist.accounts[i].firstName  %> <%= parselist.accounts[i].lastName  %></a>
+      </div>
+         <% } %>
+</div>
+             <% } %>
+     </div>
+         </div>
+         </div>
+         <!-- The form which is used to populate the item data -->
+                 <div class="form-content" style="display:none;">
+                         <div class="jumbotron">
+                            <form id="individualForm" method="post"  class="form-horizontal" >
+                              <div class="row">
+                                <div class="col-md-8 col-xs-10">
+                                  <div class="well panel panel-default">
+                                    <div class="panel-body">
+                                      <div class="row">
+                                        <div  class="col-xs-12 col-sm-4 text-center">
+                                          <img name= "profile_pic" src="images/default.png" alt="" class="center-block img-circle img-thumbnail img-responsive">
+                                          <ul class="list-inline ratings text-center" title="Ratings">
+                                            <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                            <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                            <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                            <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                            <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                          </ul>
+                                        </div>
+                                        <!--/col-->
+                                        <div class="col-xs-12 col-lg-8">
+                                          <section id="poster">
+                                            </section>
+                                            <!-- <span class="label label-info tags">html5</span>
+                                            <span class="label label-info tags">css3</span>
+                                            <span class="label label-info tags">jquery</span>
+                                            <span class="label label-info tags">bootstrap3</span> -->
+                                          </p>
+                                        </div>
+                                        <!--/col-->
+                                        <div class="clearfix"></div>
+                                        <div class="col-xs-12 col-sm-4">
+                                          <h2><strong> 20,7K </strong></h2>
+                                          <p><small>Followers</small></p>
+                                          <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>
+                                        </div>
+                                        <!--/col-->
+                                        <!-- <div class="col-xs-12 col-sm-4">
+                                          <h2><strong>245</strong></h2>
+                                          <p><small>Following</small></p>
+                                          <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
+                                        </div>-->
+                                        <!--/col-->
+                                        <!-- <div class="col-xs-12 col-sm-4">
+                                          <h2><strong>43</strong></h2>
+                                          <p><small>Snippets</small></p>
+                                          <button type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Options </button>
+                                        </div>-->
+                                        <!--/col-->
+                                      </div>
+                                      <!--/row-->
+                                    </div>
+                                    <!--/panel-body-->
+                                  </div>
+                                  <!--/panel-->
+                                </div>
+                                <!--/col-->
+                              </div>
+                               <div class="row">
+                                  <div>
+                                     <span class="offset1 span2 label pull-right">
+                                     <!-- <a id="edit" href="#" data-original-title="Edit this user" data-toggle="tooltip" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>-->
+                                     <button id="close" type="btn-danger"  class="btn btn-sm btn-warning" type="closeButton"><i class="glyphicon glyphicon-remove"></i></button>
+                                     <!-- <button id= "save" type="submit" style="display: none;" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-floppy-save"></i></button> -->
+                                     </span>
+                                  </div>
+                               </div>
+                               <!-- <div class="row">
+                                  <div class="form-group col-xs-4">
+                                     <label>First Name</label>
+                                     <div class="input-group">
+                                        <input type="text" class="form-control" name="firstName" id="firstName" disabled="disabled" />
+                                     </div>
+                                  </div>
+                                  <div class="form-group col-xs-4">
+                                     <label>Last Name</label>
+                                     <div class="input-group">
+                                        <input type="text" class="form-control" name="lastName" id="lastName" disabled="disabled" />
+                                     </div>
+                                  </div>
+                               </div>
+                               <div class="row"> -->
+                                  <!-- <div class="form-group col-xs-4">
+                                     <label>Primary Email</label>
+                                     <div class="input-group">
+                                        <input type="text" class="form-control" name="email" id="email"  disabled="disabled" />
+                                     </div>
+                                  </div>
+                                  <div class="form-group col-xs-4">
+                                     <label>Alternate Email</label>
+                                     <div class="input-group">
+                                        <input type="text" class="form-control" name="AltInputEmail" id="AltInputEmail"  disabled="disabled" />
+                                     </div>
+                                  </div>
+
+                               </div>
+                               <div class="row">
+                 <div class="form-group col-xs-4">
+                    <label>Twitter</label>
+                    <div class="input-group">
+                       <input type="text" class="form-control" name="InputTwitter" id="InputTwitter" disabled="disabled" />
+                    </div>
+                 </div>
+                 <div class="form-group col-xs-4">
+                    <label>Facebook</label>
+                    <div class="input-group">
+                       <input type="text" class="form-control" name="InputFacebook" id="InputFacebook" disabled="disabled" />
+                    </div>
+                 </div>
+                 <div class="form-group col-xs-4">
+                    <label>Google+</label>
+                    <div class="input-group">
+                       <input type="text" class="form-control" name="InputGoogle" id="InputGoogle" disabled="disabled" />
+                    </div>
+                 </div>
+              </div> -->
+
+                               <!-- <div class="row">
+                                  <div>
+                                     <span class="offset1 span2 label pull-right">
+                                     <a id="edit" href="#" data-original-title="Edit this user" data-toggle="tooltip" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                                     <button id="close" type="submit"  class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-remove"></i></button>
+                                     <button id= "save" type="submit" style="display: none;" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-floppy-save"></i></button>
+                                     </span>
+                                  </div>
+                               </div> -->
+                            </form>
+                         </div>
+                      </div>
+
+                   </div>
+                </div>
+             </div>
+             </div>
+
+      <footer>
+         <% include ../partials/footer %>
+      </footer>
+
+      <script>
+        $(document).ready(function() {
+           $("#edit").click(function(event){
+           alert('edithi');
+
+            event.preventDefault();
+            $('.form-control').prop("disabled", false); // Element(s) are now enabled.
+             $("#save").show();
+         });
+       $("#save").click(function(event){
+           alert('savehi');
+     });
+            $('a').on('click', function() {
+                // Get the record's ID via attribute
+                //alert('hi');
+                var id1 = $(this).attr('data-id');
+                //alert(id1)
+                  $.ajax({
+                    url: 'http://localhost:5000/api/accounts/'+id1,
+                    method: 'GET'
+                }).success(function(response) {
+                  //alert(JSON.stringify(response))
+                var data = JSON.parse(JSON.stringify(response));
+                    $("#individualForm")
+
+                        .find('input[name="lastName"]').val(data.lastName).end()
+                        .find('input[name="firstName"]').val(data.firstName).end()
+                        .find('input[name="InputTwitter"]').val(data.twitter).end()
+                        .find('input[name="InputFacebook"]').val(data.facebook).end()
+                        .find('input[name="InputGoogle"]').val(data.email).end()
+                        .find('input[name="email"]').val(data.email).end()
+                        $("#profile_pic").attr("src",data.profile_pic);
+
+                    $('#poster').html("<h2 class='loading'>"+data.firstName+" "+data.lastName+"</h2>"+
+                    "<p><strong>About: </strong> "+data.profile+" </p>"+
+                    "<p><strong>Party: </strong> "+data.party+" </p>"+
+                    "<p><strong>Achievements: "+data.achievements+"</strong>");
+                                         //$('#poster').html('<h2 class="loading">Well, gee whiz! We found you a poster, skip!</h2><img id="thePoster" src=' + json[0].posters[0].image.url + ' />');
+                     // Show the dialog
+                    bootbox
+                        .dialog({
+                            title: 'User profile',
+                             message: $("#individualForm"),
+                 closeButton: false,
+                 show: true,
+                 size: "large"
+               })
+                        .on('hide.bs.modal', function(e) {
+                            $('#individualForm').hide().appendTo('body');
+
+                        })
+               .modal('show')
+             });
+            });
+        });
+     </script>
+   </body>
+</html>

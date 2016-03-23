@@ -20,7 +20,7 @@ router.use(function(req,res,next){
 router.get('/',function(req, res) {
     var db = req.db;
     var collection = db.get('states');
-	  collection.find({},{},function(e,docs){
+	  collection.find({},['name','-_id'],function(e,docs){
     console.log(docs);
 
     res.json( {

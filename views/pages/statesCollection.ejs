@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+    
+	<% 
+	var consFlag = 'false';
+	if(statesCollection != null) {
+		var a = JSON.stringify(statesCollection)
+		var b = JSON.parse(a)
+	}
+	if(constituencyCollection != "") {
+		var c = JSON.stringify(constituencyCollection)
+		var d = JSON.parse(c)
+		consFlag = 'true';
+	}
+	
+	%>
+	
+	
+<%if(statesCollection != null) {%>
+
+<div class="control-group">
+   <div class="controls">
+  State  : <select id="state" name="state" size="1">
+       <% b.forEach(function (item) { %>
+         <option value = "<%= item.name %>"><%= item.name %></option>
+          
+   <% }); %>  
+ </select>
+    </div>
+</div>
+<%}%>
+<br></br>
+<%if(consFlag=='true') {%>
+<div class="control-group">
+   <div class="controls">
+  Constituency  : <select id="constituency" name="constituency" size="1">
+       <% d.forEach(function (item) { %>
+         <option value = "<%= item.constituency %>" ><%= item.constituency %></option>
+   <% }); %>  
+ </select>
+    </div>
+</div>
+<%}%>
+	
+	
+	
+	<footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+
+</html>

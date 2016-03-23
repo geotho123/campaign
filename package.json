@@ -14,7 +14,11 @@
 		"morgan": "1.6.1",
 		"serve-favicon": "2.3.0",
 		"mongodb": "*",
-		"monk": "*"
+		"monk": "*",
+		"request":"*",
+		"bootbox":"*",
+		"json-middleware":"*",
+		"aws-sdk" :"*"
 	},
 	"engines": {
 		"node": "0.12.7"
