@@ -130,13 +130,9 @@ app.listen(app.get('port'), function() {
 /*
  * Load the S3 information from the environment variables.
  */
-//var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
-//var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
-//var S3_BUCKET = process.env.S3_BUCKET;
-
-var AWS_ACCESS_KEY = 'AKIAIFAQUWQHNUYDDBSA';
-var AWS_SECRET_KEY = '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';
-var S3_BUCKET = 'campaign-profile';
+var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+var S3_BUCKET = process.env.S3_BUCKET;
 
 
 var routes = require('./routes/index');
